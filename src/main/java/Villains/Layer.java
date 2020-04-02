@@ -7,14 +7,14 @@ package main.java.Villains;
  *
  * @author camanjar
  */
-public class Villager {
+public class Layer {
 
     private String name;
-    private Tool tool; //Axe, shovel, etc.
+    private EvilLayer evilLayer; //Axe, shovel, etc.
 
-    public Villager(String n, Tool t) {
+    public Layer(String n, EvilLayer t) {
         name = n;
-        tool = t;
+        evilLayer = t;
     }
 
     //Getters & Setters
@@ -27,11 +27,11 @@ public class Villager {
         this.name = name;
     }
 
-    public Tool getTool() {
-        return tool;
+    public EvilLayer getEvilLayer() {
+        return evilLayer;
     }
 
-    public void setTool(Tool tool) {
-        this.tool = tool;
+    public void setEvilLayer(EvilLayer evilLayer) {
+        this.evilLayer = evilLayer;
     }
 }

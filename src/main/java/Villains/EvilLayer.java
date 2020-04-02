@@ -8,7 +8,7 @@ package main.java.Villains;
  *
  * @author camanjar
  */
-public class Tool implements ToolPlan {
+public class EvilLayer implements LayerPlan {
 
     private String type; //Axe, Shovel, Ladder, etc.
     private String color;

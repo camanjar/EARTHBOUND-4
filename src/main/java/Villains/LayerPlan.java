@@ -6,7 +6,7 @@ package main.java.Villains;
  *
  * @author camanjar
  */
-public interface ToolPlan {
+public interface LayerPlan {
 
     public void setToolColor(String color);
     public void setToolType(String type);

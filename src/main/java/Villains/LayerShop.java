@@ -8,24 +8,24 @@ package main.java.Villains;
  *
  * @author camanjar
  */
-public class ToolShop {
+public class LayerShop {
 
-    private ToolBuilder toolBuilder;
+    private LayerBuilder layerBuilder;
 
-    public ToolShop(ToolBuilder t) {
-        toolBuilder = t;
+    public LayerShop(LayerBuilder t) {
+        layerBuilder = t;
     }
 
-    public Tool getTool() {
+    public EvilLayer getTool() {
 
-        return this.toolBuilder.getTool();
+        return this.layerBuilder.getEvilLayer();
     }
 
     //Function construct tools through toolBuilder
     public void makeTool() {
-        toolBuilder.buildToolColor();
-        toolBuilder.buildToolStrength();
-        toolBuilder.buildToolType();
+        layerBuilder.buildToolColor();
+        layerBuilder.buildToolStrength();
+        layerBuilder.buildToolType();
     }
 
 }

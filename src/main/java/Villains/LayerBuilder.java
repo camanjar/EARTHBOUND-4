@@ -7,10 +7,10 @@ package main.java.Villains;
  * To be instantiated by NookBuilder
  * @author camanjar
  */
-public interface ToolBuilder {
+public interface LayerBuilder {
 
     public void buildToolColor();
     public void buildToolType();
     public void buildToolStrength();
-    public Tool getTool();
+    public EvilLayer getEvilLayer();
 }

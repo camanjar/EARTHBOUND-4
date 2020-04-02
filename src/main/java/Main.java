@@ -1,8 +1,13 @@
 package main.java;
 
+import main.java.Villains.*;
+
+
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("\nHELLO\n");
+
+        VillainsFactory villainsFactory = new VillainsFactory(Villains.BOWSER);
+        villainsFactory.catchPhrase();
     }
 }
