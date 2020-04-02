@@ -16,6 +16,7 @@ The simulation begins in the city of Onette, where villains will "spawn" through
 More information covering villanous activity in Onette: 
 - Villain layers will be constructed by the builder pattern
 - Villains will belong to group layers where heroes will battle
+- Villains will have randomly generated names and descriptions
 
 Heroes and villains engage in battle, victory dependant on HP, strength, and special abilities. All heroes and villains will have powers and through a power multiplier will affect characters in different ways. 
 
