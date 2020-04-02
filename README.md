@@ -1,12 +1,12 @@
  ![Image description](ui/images/earthbound4.png)
  
-#Welcome to Earthbound 4!
+# Welcome to Earthbound 4!
 Is this an assignment for SER316 at ASU Polytechnic Campus? **Maybe...** Is this another one of Pokey's evil ruses to rule the world once again? **Most definitly.** ✧ (▀̿Ĺ̯▀̿ ̿) 
 
 Welcome to Onette, where our hero Ness lives to once again return to humanity's rescue. He and his many friends, including his trusty dog sidekick Randy, will be forced to battle villains at the hottest spots close and far from Onette. Villains, like 
 Silberkugel and Bronze Kneecap, will try to overcome Ness and his friends' powers and aid Pokey to his conquest of planetary destruction.  (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ ᵖᵏ ˢᵗᵃʳˢᵗᵒʳᵐ✧ﾟ･
 
-###Software Structure 
+### Software Structure 
 Following Design Patterns are used for the sturcture of this simulation: 
 - Builder Design Pattern
 - Decorator Design Pattern
