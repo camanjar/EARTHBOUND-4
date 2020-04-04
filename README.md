@@ -1,4 +1,4 @@
- ![Image description](ui/images/earthbound4.png)
+ ![Image description](src/main/resources/ui/images/earthbound4.png)
  
 # Welcome to Earthbound 4!
 Is this an assignment for SER316 at ASU Polytechnic Campus? **Maybe...** Is this another one of Pokey's evil ruses to rule the world once again? **Most definitly.** ✧ (▀̿Ĺ̯▀̿ ̿) 

@@ -14,7 +14,6 @@ import java.util.Random;
 /**
  * TODO: Have villains spawn in layers (will hold arrayList of villains)
  * TODO: Finish battle sequence
- * TODO: Sound?
  */
 
 public class Main {
@@ -26,7 +25,7 @@ public class Main {
         EnemyFactory villainsFactory = new EnemyFactory();
         EnemySpawnner enemySpawnner = null;
 
-        System.out.println("Which enemy would you like?");
+        System.out.println("NESS encounters an enemy!");
 
         String enemyType = Integer.toString(random.nextInt(5));
         enemySpawnner = villainsFactory.makeEnemy(enemyType);
@@ -34,6 +33,7 @@ public class Main {
         TimeUnit.SECONDS.sleep(2);
         Ness ness = new Ness();
         ness.displayVillain();
+        playSound("hpsuck.wav");
 
         TimeUnit.SECONDS.sleep(3);
 
@@ -41,13 +41,17 @@ public class Main {
 
         if (enemySpawnner != null) {
             doStuff(enemySpawnner);
+            playSound("enemyhit.wav");
         }
 
         TimeUnit.SECONDS.sleep(3);
 
         ness.attack();
-        //Audio audio = new Audio();
-        //audio.play("ui/sound/attack1.wav");
+        playSound("attack1.wav");
+        TimeUnit.SECONDS.sleep(2);
+        System.out.println("NESS wins the battle!");
+        playSound("eb_winboss.wav");
+        TimeUnit.SECONDS.sleep(3);
     }
 
     public static void doStuff(EnemySpawnner e) {
@@ -57,6 +61,24 @@ public class Main {
         System.out.println(e.getPhysDamage());
         System.out.println(e.getSpecDamage());
         e.attack();
+    }
+
+    public static synchronized void playSound(final String url) {
+        new Thread(new Runnable() {
+            // The wrapper thread is unnecessary, unless it blocks on the
+            // Clip finishing; see comments.
+            public void run() {
+                try {
+                    Clip clip = AudioSystem.getClip();
+                    AudioInputStream inputStream = AudioSystem.getAudioInputStream(
+                            Main.class.getResourceAsStream("/ui/sound/" + url));
+                    clip.open(inputStream);
+                    clip.start();
+                } catch (Exception e) {
+                    System.err.println(e.getMessage());
+                }
+            }
+        }).start();
     }
 }
 
