@@ -4,6 +4,12 @@ public abstract class EnemySpawnner {
 
     private double HP;
     private String name;
+    private String weapon;
+    private String image; //ASCII illustrations
+    private double physDamage;
+    private double specDamage;
+
+    protected EnemySpawnner() { };
 
     public String getWeapon() {
         return weapon;
@@ -12,13 +18,6 @@ public abstract class EnemySpawnner {
     public void setWeapon(String weapon) {
         this.weapon = weapon;
     }
-
-    private String weapon;
-    private String image; //ASCII illustrations
-    private double physDamage;
-    private double specDamage;
-
-    protected EnemySpawnner() { };
 
     public double getHP() {
         return HP;
