@@ -1,5 +1,7 @@
 package main.java.Villains;
 
+import main.java.Villains.Characters.EnemySpawnner;
+
 public class EnemyFactory {
 
     public EnemySpawnner makeEnemy(String newEnemy) {

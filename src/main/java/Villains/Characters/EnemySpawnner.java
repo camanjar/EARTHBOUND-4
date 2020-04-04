@@ -1,11 +1,15 @@
-package main.java.Villains;
+package main.java.Villains.Characters;
 
 public abstract class EnemySpawnner {
 
+    private  double HP;
     private String name;
     private String image; //ASCII illustrations
     private double physDamage;
     private double specDamage;
+
+    protected EnemySpawnner() {
+    }
 
     public String getName() {
         return name;
@@ -13,6 +17,14 @@ public abstract class EnemySpawnner {
 
     public void setName (String name) {
         this.name = name;
+    }
+
+    public String getHP() {
+        return name;
+    }
+
+    public void setHP (double hp) {
+        this.HP = hp;
     }
 
     public String getImage() {

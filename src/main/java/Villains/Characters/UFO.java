@@ -1,8 +1,9 @@
-package main.java.Villains;
+package main.java.Villains.Characters;
 
-public class UFOEnemy extends EnemySpawnner{
+public class UFO extends EnemySpawnner {
 
-    public UFOEnemy() {
+    public UFO() {
+        setHP(50.00);
         setName("Tester");
         setImage("image");
         setPhysDamage(6.00);
