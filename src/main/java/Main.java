@@ -4,10 +4,8 @@ import main.java.Heroes.*;
 import main.java.Villains.*;
 import main.java.Villains.Characters.EnemySpawnner;
 
-import javax.print.attribute.standard.Media;
 import javax.sound.sampled.*;
 import java.io.IOException;
-import java.net.URL;
 import java.util.concurrent.TimeUnit;
 import java.util.Random;
 //
@@ -21,9 +19,7 @@ import java.util.Random;
 
 public class Main {
 
-    private static Object AudioPlayer;
-
-    public static <AudioStream> void main(String[] args) throws InterruptedException, LineUnavailableException, IOException, UnsupportedAudioFileException {
+    public static void main(String[] args) throws InterruptedException, LineUnavailableException, IOException, UnsupportedAudioFileException {
 
         Random random = new Random();
 
@@ -50,7 +46,8 @@ public class Main {
         TimeUnit.SECONDS.sleep(3);
 
         ness.attack();
-        playSound("hpsuck.wav");
+        //Audio audio = new Audio();
+        //audio.play("ui/sound/attack1.wav");
     }
 
     public static void doStuff(EnemySpawnner e) {
@@ -60,19 +57,6 @@ public class Main {
         System.out.println(e.getPhysDamage());
         System.out.println(e.getSpecDamage());
         e.attack();
-    }
-
-    public static synchronized void playSound(final String url) {
-        try {
-            Clip clip = AudioSystem.getClip();
-            AudioInputStream inputStream = AudioSystem.getAudioInputStream(
-                    Main.class.getResourceAsStream("/ui/sound/" + url));
-            clip.open(inputStream);
-            clip.start();
-        } catch (Exception e) {
-            System.out.println("Didnt work...");
-            System.err.println(e.getMessage());
-        }
     }
 }
 
