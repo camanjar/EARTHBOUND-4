@@ -1,6 +1,9 @@
 package main.java;
 
 import main.java.Villains.*;
+import main.java.Villains.Characters.EnemySpawnner;
+//import java.util.Scanner;
+
 
 /**
  * TODO: Finish creating villains and layer using
@@ -11,17 +14,32 @@ public class Main {
 
     public static void main(String[] args) {
 
-        VillainsFactory villainsFactory = new VillainsFactory(Villains.EVIL_MUSHROOM);
-        villainsFactory.catchPhrase();
+        EnemyFactory villainsFactory = new EnemyFactory();
+        EnemySpawnner enemySpawnner = null;
 
-        VillainsFactory villainsFactory2 = new VillainsFactory(Villains.STARMAN);
-        villainsFactory2.catchPhrase();
+        //Scanner userInput = new Scanner(System.in);
 
-        VillainsFactory villainsFactory3 = new VillainsFactory(Villains.MOBILE_CACTUS);
-        villainsFactory3.catchPhrase();
+        System.out.println("Which enemy would you like?");
+
+        //if (userInput.hasNextLine()) {
+            String enemyType = "1";
+            enemySpawnner = villainsFactory.makeEnemy(enemyType);
+        //}
+
+        if (enemySpawnner != null) {
+            doStuff(enemySpawnner);
+        }
+
 
     }
 
-
+    public static void doStuff(EnemySpawnner e) {
+        e.displayVillain();
+        System.out.println(e.getName());
+        System.out.println(e.getHP());
+        System.out.println(e.getPhysDamage());
+        System.out.println(e.getSpecDamage());
+        e.attack();
+    }
 }
 

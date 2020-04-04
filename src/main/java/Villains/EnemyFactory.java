@@ -1,6 +1,9 @@
 package main.java.Villains;
 
 import main.java.Villains.Characters.EnemySpawnner;
+import main.java.Villains.Characters.EvilMushroom;
+import main.java.Villains.Characters.RetroHipster;
+import main.java.Villains.Characters.SmellyGhost;
 
 public class EnemyFactory {
 
@@ -10,20 +13,26 @@ public class EnemyFactory {
 
         if (newEnemy.equalsIgnoreCase("1")) {
 
+            return new RetroHipster();
+
         } else if (newEnemy.equalsIgnoreCase("2")) {
+
+            return new SmellyGhost();
 
         } else if (newEnemy.equalsIgnoreCase("3")) {
 
+            return new EvilMushroom();
+
         } else if (newEnemy.equalsIgnoreCase("4")) {
+
+            return new SmellyGhost();
 
         } else if (newEnemy.equalsIgnoreCase("5")) {
 
-        } else if (newEnemy.equalsIgnoreCase("6")) {
-
-        } else if (newEnemy.equalsIgnoreCase("7")) {
-
         } else {
 
+            System.out.println("That was not a choice, so we will pick for you!");
+            return new EvilMushroom();
         }
 
         return e;

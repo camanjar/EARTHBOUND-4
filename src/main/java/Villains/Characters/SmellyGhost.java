@@ -8,12 +8,13 @@ public class SmellyGhost extends EnemySpawnner {
             " \\   \\\n" +
             "  `~~~'");
 
-    public EvilMushroom() {
+    public SmellyGhost() {
         setHP(10.00);
         setName("SMELLY GHOST");
         setImage(asciiArt);
+        setWeapon("a loud screech");
         setPhysDamage(1.00);
-        setSpecDamageDamage(5.00);
+        setSpecDamage(5.00);
     }
 
 }

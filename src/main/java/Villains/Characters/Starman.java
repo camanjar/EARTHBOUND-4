@@ -13,7 +13,8 @@ public class Starman extends EnemySpawnner {
         setHP(100.00);
         setName("STARMAN");
         setImage(asciiDisplay);
+        setWeapon("a weird laser gun");
         setPhysDamage(1.00);
-        setSpecDamageDamage(15.00);
+        setSpecDamage(15.00);
     }
 }

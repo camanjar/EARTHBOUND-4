@@ -11,8 +11,9 @@ public class EvilMushroom extends EnemySpawnner {
     public EvilMushroom() {
         setHP(10.00);
         setName("EVIL MUSHROOM");
+        setWeapon("spores");
         setImage(asciiDisplay);
         setPhysDamage(1.00);
-        setSpecDamageDamage(5.00);
+        setSpecDamage(5.00);
     }
 }
