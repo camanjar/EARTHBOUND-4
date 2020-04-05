@@ -63,7 +63,7 @@ public abstract class Hero {
         System.out.println(image);
     }
 
-    public void attack() {
-        System.out.println(name + " attacks with " + weapon + " and does " + physDamage + " damage!");
+    public void attack(double n) {
+        System.out.println(name + " attacks with " + weapon + " and does inflicts " + n + " damage!");
     }
 }

@@ -20,6 +20,11 @@ public class Paula extends Hero {
         setWeapon("PK Fire");
         setImage(asciiArt);
         setPhysDamage(100.00);
-        setSpecDamage(20.00);
+        setSpecDamage(35.00);
+    }
+
+    @Override
+    public double getSpecDamage() {
+        return 35.00;
     }
 }

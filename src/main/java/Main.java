@@ -6,6 +6,7 @@ import main.java.Villains.Characters.EnemySpawnner;
 
 import javax.sound.sampled.*;
 import java.io.IOException;
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 import java.util.Random;
@@ -13,18 +14,23 @@ import java.util.Random;
 
 
 /**
- * TODO: Have villains spawn in layers (will hold arrayList of villains)
- * TODO: Finish battle sequence
+ *
+ *
  */
 
 public class Main {
 
-    private static Random random = new Random(); //Randomizes creation of enemies
+    private static Random rand = new SecureRandom();
+    public static int randInt(int min, int max) {
+        // Random rand = new Random();
+        int randomNum = rand.nextInt((max - min) + 1) + min;
+        return randomNum;
+    }
 
     public static void main(String[] args) throws InterruptedException, LineUnavailableException, IOException, UnsupportedAudioFileException {
 
         Ness ness = new Ness();
-        //Paula paula = new Paula();
+        Paula paula = new Paula();
         //Randy randy = new Randy();
 
         /////////////// INTRODUCING GAME TO PLAYER ///////////////
@@ -45,56 +51,83 @@ public class Main {
         layerShop.makeLayer();
         EvilLayer baseOne = layerShop.getTool();
 
-        layerShop.makeLayer();
-        EvilLayer baseTwo = layerShop.getTool();
+        LayerEngineer evilLayer2 = new LayerEngineer();
+        LayerShop layerShop2 = new LayerShop(evilLayer2);
+        layerShop2.makeLayer();
+        EvilLayer baseTwo = layerShop2.getTool();
 
-        layerShop.makeLayer();
-        EvilLayer baseThree = layerShop.getTool();
+        LayerEngineer evilLayer3 = new LayerEngineer();
+        LayerShop layerShop3 = new LayerShop(evilLayer3);
+        layerShop3.makeLayer();
+        EvilLayer baseThree = layerShop3.getTool();
 
 
         // FACTORY DESIGN PATTERN --> Enemy Spawning
-
         EnemyFactory villainsFactory = new EnemyFactory();
 
-        EnemySpawnner enemySpawnner1 = null;
-        String enemyType = Integer.toString(random.nextInt(5));
-        enemySpawnner1 = villainsFactory.makeEnemy(enemyType);
+        EnemySpawnner enemySpawnner1 = villainsFactory.makeEnemy("1");
         baseOne.layerRoster.add(enemySpawnner1);
 
-        EnemySpawnner enemySpawnner2 = null;
-        String enemyType2 = Integer.toString(random.nextInt(5));
-        enemySpawnner2 = villainsFactory.makeEnemy(enemyType2);
+        EnemySpawnner enemySpawnner2 = villainsFactory.makeEnemy("2");
         baseTwo.layerRoster.add(enemySpawnner2);
 
-        EnemySpawnner enemySpawnner3 = null;
-        String enemyType3 = Integer.toString(random.nextInt(5));
-        enemySpawnner3 = villainsFactory.makeEnemy(enemyType3);
+        EnemySpawnner enemySpawnner3 = villainsFactory.makeEnemy("5");
         baseThree.layerRoster.add(enemySpawnner3);
 
-
+        /////////////////////
+        //Scenario 1
+        ////////////////////
         waitTime(5);
         System.out.println("Ness and Paula walk into the first layer called " +
-                baseOne.getColor() + " " + baseOne.getStrength() + " " + baseOne.getType());
+                baseOne.getColor() + " " +  baseOne.getType() + " " + baseOne.getStrength());
         waitTime(4);
-        System.out.println("Ness encounters a villain!");
+        System.out.println("Ness is back in action!");
         ness.displayVillain();
         waitTime(2);
         System.out.println(baseOne.getRoster().get(0).getImage());
-        System.out.println(baseOne.getRoster().get(0).getHP());
+        System.out.println(baseOne.getRoster().get(0).getName() + " appeared!");
+        System.out.println("Starting HP: " + baseOne.getRoster().get(0).getHP());
         waitTime(2);
         battle(ness, baseOne.getRoster().get(0), true);
 
+        /////////////////////
+        //Scenario 2
+        ////////////////////
+        waitTime(5);
+        System.out.println("Ness and Paula walk into the second layer called " +
+                baseTwo.getColor() + " " +  baseTwo.getType() + " " + baseTwo.getStrength());
+        waitTime(4);
+        System.out.println("Paula takes the lead!");
+        paula.displayVillain();
+        waitTime(2);
+        System.out.println(baseTwo.getRoster().get(0).getImage());
+        System.out.println(baseTwo.getRoster().get(0).getName() + " appeared!");
+        System.out.println("Starting HP: " + baseTwo.getRoster().get(0).getHP());
+        waitTime(2);
+        battle(paula, baseTwo.getRoster().get(0), false);
 
+        /////////////////////
+        //Scenario 3
+        ////////////////////
+        waitTime(5);
+        System.out.println("Ness and Paula walk into the second layer called " +
+                baseThree.getColor() + " " +  baseThree.getType() + " " + baseThree.getStrength());
+        waitTime(4);
+        System.out.println("Ness encounters another villain!");
+        ness.displayVillain();
+        waitTime(2);
+        System.out.println(baseThree.getRoster().get(0).getImage());
+        System.out.println(baseThree.getRoster().get(0).getName() + " appeared!");
+        System.out.println("Starting HP: " + baseThree.getRoster().get(0).getHP());
+        waitTime(2);
+        battle(ness, baseThree.getRoster().get(0), true);
+        waitTime(3);
 
-    }
+        /////////////////////
+        // End of Simulation
+        /////////////////////
 
-    public static void doStuff(EnemySpawnner e) {
-        e.displayVillain();
-        System.out.println(e.getName());
-        System.out.println(e.getHP());
-        System.out.println(e.getPhysDamage());
-        System.out.println(e.getSpecDamage());
-        e.attack();
+        intro.goodBye();
     }
 
     public static synchronized void playSound(final String url) {
@@ -120,22 +153,42 @@ public class Main {
     }
 
     public static boolean battle(Hero h, EnemySpawnner e, boolean heroTurn) throws InterruptedException {
-        while (e.getHP() >= 1 || h.getHP() >= 1) {
+
+        double originalHP = e.getHP(); //For resetting to future spawns
+
+        while (e.getHP() >= 1 && h.getHP() >= 1) {
+
+            int damage = randInt(0, (int) h.getPhysDamage());
+            h.attack(damage);
+            e.setHP(e.getHP() - damage);
             if (heroTurn) {
-                h.attack();
-                e.setHP(e.getHP() - random.nextInt((int) e.getPhysDamage()));
                 playSound("attack1.wav");
-                waitTime(2);
+            } else {
+                playSound("hpsuck.wav");
             }
-            e.attack();
-            h.setHP(h.getHP()- random.nextInt((int) e.getPhysDamage()));
+                waitTime(2);
+
+            int evildamage = randInt(0, (int) e.getPhysDamage()); //TODO: Get correct number
+            e.attack(evildamage);
+            h.setHP(h.getHP()- evildamage);
             playSound("enemyhit.wav");
             waitTime(2);
+
+            if (h.getHP() < 0) {
+                h.setHP(0);
+            } else if (e.getHP() < 0) {
+                e.setHP(0);
+            }
+
+            System.out.println("\nCurrent HP:\n" +
+                    h.getName() + ": " + h.getHP() + "\n" +
+                    e.getName() + ": " + e.getHP() + "\n");
         }
         if (h.getHP() != 0) {
             System.out.println(h.getName() + " won the battle!");
             playSound("eb_winboss.wav");
             waitTime(5);
+            e.setHP(originalHP); //Resets in case of repeated villains
             return true;
         } else {
             System.out.println("Game over...");
@@ -144,32 +197,3 @@ public class Main {
             }
         }
     }
-
-
-//        System.out.println("NESS encounters an enemy!");
-//
-
-//
-//        TimeUnit.SECONDS.sleep(2);
-//        Ness ness = new Ness();
-//        ness.displayVillain();
-//        playSound("hpsuck.wav");
-//
-//        TimeUnit.SECONDS.sleep(3);
-//
-//        enemySpawnner = villainsFactory.makeEnemy(enemyType);
-//
-//        if (enemySpawnner != null) {
-//            doStuff(enemySpawnner);
-//            playSound("enemyhit.wav");
-//        }
-//
-//        TimeUnit.SECONDS.sleep(3);
-//
-//        ness.attack();
-//        playSound("attack1.wav");
-//        TimeUnit.SECONDS.sleep(2);
-//        System.out.println("NESS wins the battle!");
-//        playSound("eb_winboss.wav");
-//        TimeUnit.SECONDS.sleep(3);
-//

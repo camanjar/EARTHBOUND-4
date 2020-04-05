@@ -2,12 +2,12 @@ package main.java.Villains.Characters;
 
 public abstract class EnemySpawnner {
 
-    private double HP;
-    private String name;
-    private String weapon;
-    private String image; //ASCII illustrations
-    private double physDamage;
-    private double specDamage;
+    protected double HP;
+    protected String name;
+    protected String weapon;
+    protected String image; //ASCII illustrations
+    protected double physDamage;
+    protected double specDamage;
 
     protected EnemySpawnner() { };
 
@@ -63,8 +63,8 @@ public abstract class EnemySpawnner {
         System.out.println(image);
     }
 
-    public void attack() {
-        System.out.println(name + " attacks with " + weapon + " and does " + physDamage + " damage!");
+    public void attack(double n) {
+        System.out.println(name + " attacks with " + weapon + " and inflicts " + n + " damage!");
     }
 
 }

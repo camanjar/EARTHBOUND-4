@@ -22,7 +22,12 @@ public class Ness extends Hero {
         setName("NESS");
         setWeapon("a baseball bat");
         setImage(asciiArt);
-        setPhysDamage(20.00);
-        setSpecDamage(45.00);
+        setPhysDamage(40.00);
+        setSpecDamage(35.00);
+    }
+
+    @Override
+    public double getPhysDamage() {
+        return 82.00;
     }
 }

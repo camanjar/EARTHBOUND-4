@@ -13,8 +13,7 @@ public class SmellyGhost extends EnemySpawnner {
         setName("SMELLY GHOST");
         setImage(asciiArt);
         setWeapon("a loud screech");
-        setPhysDamage(1.00);
-        setSpecDamage(5.00);
+        setPhysDamage(18.00);
+        setSpecDamage(34.00);
     }
-
 }
