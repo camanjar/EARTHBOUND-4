@@ -17,7 +17,6 @@ import java.util.Random;
  *
  *
  */
-
 public class Main {
 
     private static Random rand = new SecureRandom();
@@ -38,7 +37,6 @@ public class Main {
         intro.getAsciiArt();
         playSound("titlescreen.wav");
         intro.getSummary();
-        TimeUnit.SECONDS.sleep(10);
 
         /////////////////////////////////////
         // SCENE 1: Layers & Enemies Created
@@ -81,7 +79,7 @@ public class Main {
         System.out.println("Ness and Paula walk into the first layer called " +
                 baseOne.getColor() + " " +  baseOne.getType() + " " + baseOne.getStrength());
         waitTime(4);
-        System.out.println("Ness is back in action!");
+        System.out.println("Ness gets ready to fight!");
         ness.displayVillain();
         waitTime(2);
         System.out.println(baseOne.getRoster().get(0).getImage());
@@ -94,7 +92,7 @@ public class Main {
         //Scenario 2
         ////////////////////
         waitTime(5);
-        System.out.println("Ness and Paula walk into the second layer called " +
+        System.out.println("\n\nNess and Paula walk into the second layer called " +
                 baseTwo.getColor() + " " +  baseTwo.getType() + " " + baseTwo.getStrength());
         waitTime(4);
         System.out.println("Paula takes the lead!");
@@ -110,7 +108,7 @@ public class Main {
         //Scenario 3
         ////////////////////
         waitTime(5);
-        System.out.println("Ness and Paula walk into the second layer called " +
+        System.out.println("\n\nNess and Paula walk into the third layer called " +
                 baseThree.getColor() + " " +  baseThree.getType() + " " + baseThree.getStrength());
         waitTime(4);
         System.out.println("Ness encounters another villain!");
@@ -132,8 +130,6 @@ public class Main {
 
     public static synchronized void playSound(final String url) {
         new Thread(new Runnable() {
-            // The wrapper thread is unnecessary, unless it blocks on the
-            // Clip finishing; see comments.
             public void run() {
                 try {
                     Clip clip = AudioSystem.getClip();
@@ -168,7 +164,7 @@ public class Main {
             }
                 waitTime(2);
 
-            int evildamage = randInt(0, (int) e.getPhysDamage()); //TODO: Get correct number
+            int evildamage = randInt(0, (int) e.getPhysDamage());
             e.attack(evildamage);
             h.setHP(h.getHP()- evildamage);
             playSound("enemyhit.wav");
