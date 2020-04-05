@@ -22,10 +22,10 @@ public class LayerShop {
     }
 
     //Function construct tools through toolBuilder
-    public void makeTool() {
-        layerBuilder.buildToolColor();
-        layerBuilder.buildToolStrength();
-        layerBuilder.buildToolType();
+    public void makeLayer() {
+        layerBuilder.initRoster();
+        layerBuilder.buildLayerColor();
+        layerBuilder.buildLayerStrength();
+        layerBuilder.buildLayerType();
     }
-
 }

@@ -9,7 +9,7 @@ public class EvilMushroom extends EnemySpawnner {
             " \\|/(_)\\|/");
 
     public EvilMushroom() {
-        setHP(10.00);
+        setHP(40.00);
         setName("EVIL MUSHROOM");
         setWeapon("spores");
         setImage(asciiDisplay);

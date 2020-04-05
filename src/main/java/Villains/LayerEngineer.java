@@ -1,5 +1,8 @@
 package main.java.Villains;
 
+import main.java.Villains.Characters.EnemySpawnner;
+
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -12,9 +15,9 @@ public class LayerEngineer implements LayerBuilder {
     private EvilLayer evilLayer;
     private Random random = new Random(); //Used to create random tools
 
-    private String[] colors = {"pink", "blue", "plaid", "green", "crystal", "yellow"};
-    private String[] type = {"axe", "shovel", "fishing rod", "net", "shovel", "ladder"};
-    private  String[] strength = {"weak", "strong", "weird"};
+    private String[] colors = {"Downtown", "New", "San", "Green", "Hollow", "Mirky"};
+    private String[] type = {"Water", "Tech", "Sketchy", "Market", "Palace", "Dark"};
+    private  String[] strength = {"Bastion", "City", "Alley", "Hill"};
 
     public LayerEngineer() {
         evilLayer = new EvilLayer();
@@ -22,20 +25,24 @@ public class LayerEngineer implements LayerBuilder {
 
     // Getters & Setters
 
-    @Override
-    public void buildToolColor() {
-        evilLayer.setToolColor(colors[RandomIndex(colors.length)]);
+    public void initRoster() {
+        evilLayer.layerRoster = new ArrayList<EnemySpawnner>();
     }
 
     @Override
-    public void buildToolType() {
-        evilLayer.setToolType(type[RandomIndex(type.length)]);
+    public void buildLayerColor() {
+        evilLayer.setLayerColor(colors[RandomIndex(colors.length)]);
     }
 
     @Override
-    public void buildToolStrength() {
+    public void buildLayerType() {
+        evilLayer.setLayerType(type[RandomIndex(type.length)]);
+    }
 
-        evilLayer.setToolStrength(strength[RandomIndex(strength.length)]);
+    @Override
+    public void buildLayerStrength() {
+
+        evilLayer.setLayerStrength(strength[RandomIndex(strength.length)]);
     }
 
 

@@ -8,8 +8,8 @@ package main.java.Villains;
  */
 public interface LayerPlan {
 
-    public void setToolColor(String color);
-    public void setToolType(String type);
-    public void setToolStrength(String strength);
+    public void setLayerColor(String color);
+    public void setLayerType(String type);
+    public void setLayerStrength(String strength);
 
 }

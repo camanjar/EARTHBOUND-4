@@ -17,6 +17,9 @@ public class Layer {
         evilLayer = t;
     }
 
+    public Layer(LayerEngineer evilLayer) {
+    }
+
     //Getters & Setters
 
     public String getName() {

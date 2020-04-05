@@ -9,7 +9,7 @@ public class SmellyGhost extends EnemySpawnner {
             "  `~~~'");
 
     public SmellyGhost() {
-        setHP(10.00);
+        setHP(40.00);
         setName("SMELLY GHOST");
         setImage(asciiArt);
         setWeapon("a loud screech");

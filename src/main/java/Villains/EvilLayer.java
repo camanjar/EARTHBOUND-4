@@ -1,5 +1,9 @@
 package main.java.Villains;
 
+import main.java.Villains.Characters.EnemySpawnner;
+
+import java.util.ArrayList;
+
 /**
  * Implements ToolPlan
  *
@@ -10,6 +14,7 @@ package main.java.Villains;
  */
 public class EvilLayer implements LayerPlan {
 
+    public ArrayList<EnemySpawnner> layerRoster;
     private String type; //Axe, Shovel, Ladder, etc.
     private String color;
     private String strength; //Strong, weak, etc.
@@ -28,18 +33,22 @@ public class EvilLayer implements LayerPlan {
         return strength;
     }
 
+    public ArrayList<EnemySpawnner> getRoster() {
+        return layerRoster;
+    }
+
     @Override
-    public void setToolColor(String col) {
+    public void setLayerColor(String col) {
         color = col;
     }
 
     @Override
-    public void setToolType(String t) {
+    public void setLayerType(String t) {
         type = t;
     }
 
     @Override
-    public void setToolStrength(String str) {
+    public void setLayerStrength(String str) {
         strength = str;
     }
 

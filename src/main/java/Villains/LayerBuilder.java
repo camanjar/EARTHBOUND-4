@@ -9,8 +9,9 @@ package main.java.Villains;
  */
 public interface LayerBuilder {
 
-    public void buildToolColor();
-    public void buildToolType();
-    public void buildToolStrength();
+    public void initRoster();
+    public void buildLayerColor();
+    public void buildLayerType();
+    public void buildLayerStrength();
     public EvilLayer getEvilLayer();
 }
