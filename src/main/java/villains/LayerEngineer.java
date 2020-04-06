@@ -1,12 +1,13 @@
-package main.java.Villains;
-
-import main.java.Villains.Characters.EnemySpawnner;
+package main.java.villains;
 
 import java.util.ArrayList;
 import java.util.Random;
 
+import main.java.villains.characters.EnemySpawnner;
+
+
 /**
- * Implementation of NookBuilder
+ * Implementation of LayerEngineer.
  *
  * @author camanjar
  */
@@ -31,18 +32,18 @@ public class LayerEngineer implements LayerBuilder {
 
     @Override
     public void buildLayerColor() {
-        evilLayer.setLayerColor(colors[RandomIndex(colors.length)]);
+        evilLayer.setLayerColor(colors[randomIndex(colors.length)]);
     }
 
     @Override
     public void buildLayerType() {
-        evilLayer.setLayerType(type[RandomIndex(type.length)]);
+        evilLayer.setLayerType(type[randomIndex(type.length)]);
     }
 
     @Override
     public void buildLayerStrength() {
 
-        evilLayer.setLayerStrength(strength[RandomIndex(strength.length)]);
+        evilLayer.setLayerStrength(strength[randomIndex(strength.length)]);
     }
 
 
@@ -50,7 +51,7 @@ public class LayerEngineer implements LayerBuilder {
         return evilLayer;
     }
 
-    private int RandomIndex(int max) {
+    private int randomIndex(int max) {
         return (int) (random.nextInt(max));
     }
 

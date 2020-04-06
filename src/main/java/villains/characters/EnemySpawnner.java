@@ -1,15 +1,15 @@
-package main.java.Heroes;
+package main.java.villains.characters;
 
-public abstract class Hero {
+public abstract class EnemySpawnner {
 
-    private double HP;
-    private String name;
-    private String weapon;
-    private String image; //ASCII illustrations
-    private double physDamage;
-    private double specDamage;
+    protected double hp;
+    protected String name;
+    protected String weapon;
+    protected String image; //ASCII illustrations
+    protected double physDamage;
+    protected double specDamage;
 
-    protected Hero() { };
+    protected EnemySpawnner() { }
 
     public String getWeapon() {
         return weapon;
@@ -19,12 +19,12 @@ public abstract class Hero {
         this.weapon = weapon;
     }
 
-    public double getHP() {
-        return HP;
+    public double getHp() {
+        return hp;
     }
 
-    public void setHP(double HP) {
-        this.HP = HP;
+    public void setHp(double hp) {
+        this.hp = hp;
     }
 
     public String getName() {
@@ -64,6 +64,7 @@ public abstract class Hero {
     }
 
     public void attack(double n) {
-        System.out.println(name + " attacks with " + weapon + " and does inflicts " + n + " damage!");
+        System.out.println(name + " attacks with " + weapon + " and inflicts " + n + " damage!");
     }
+
 }

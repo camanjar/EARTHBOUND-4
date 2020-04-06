@@ -1,11 +1,11 @@
-package main.java.Villains;
+package main.java.villains;
 
 /**
  * The main purpose of ToolShop is the makeTool() function.
- *
+ *<p></p>
  * This function creates tools for the user through the ToolBuilder interface
  * constructing tools with randomized descriptions.
- *
+ *<p></p>
  * @author camanjar
  */
 public class LayerShop {
@@ -21,7 +21,9 @@ public class LayerShop {
         return this.layerBuilder.getEvilLayer();
     }
 
-    //Function construct tools through toolBuilder
+    /**
+     * Generates different layers.
+     */
     public void makeLayer() {
         layerBuilder.initRoster();
         layerBuilder.buildLayerColor();

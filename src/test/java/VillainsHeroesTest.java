@@ -1,22 +1,25 @@
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 
-import main.java.Villains.*;
-import main.java.Heroes.*;
-import main.java.Villains.Characters.EnemySpawnner;
+import main.java.heroes.Ness;
+import main.java.heroes.Paula;
+import main.java.heroes.Randy;
+import main.java.villains.EnemyFactory;
+import main.java.villains.EvilLayer;
+import main.java.villains.LayerEngineer;
+import main.java.villains.LayerShop;
+import main.java.villains.characters.EnemySpawnner;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 
 /**
  * Testing classes in main.java for maximum coverage.
- *
+ *<p></p>
  * Tests are created to test if implemented Builder design was
  * constructed appropriately returning expected values. This also
  * ensures Villains and Layer objects are constructed properly for
@@ -39,17 +42,30 @@ public class VillainsHeroesTest {
     //VILLAINS (FACTORY)
     EnemyFactory villainsFactory = new EnemyFactory();
     EnemySpawnner enemySpawnner1 = villainsFactory.makeEnemy("1"); //Retro Hipster
-    String hipsterImage = ("      ///0 \\\\\\\n" +
-            "      |      |\n" +
-            "     @ []-[]— @\n" +
-            "      |  ~   |         \\__\n" +
-            "       \\ -- /          |\\ |\n" +
-            "     ___||||___        | \\|\n" +
-            "    /   \\  /   \\      /|__|\n" +
-            "   /     (@)    \\    / /\n" +
-            "  /  /|      |\\  \\  / /\n" +
+    String hipsterImage = ("      ///0 \\\\\\\n"
+            +
+            "      |      |\n"
+            +
+            "     @ []-[]— @\n"
+            +
+            "      |  ~   |         \\__\n"
+            +
+            "       \\ -- /          |\\ |\n"
+            +
+            "     ___||||___        | \\|\n"
+            +
+            "    /   \\  /   \\      /|__|\n"
+            +
+            "   /     (@)    \\    / /\n"
+            +
+            "  /  /|      |\\  \\  / /\n"
+            +
             " /  / |      | \\  \\/ /");
 
+    /**
+     * Setting up process for testing.
+     * @throws Exception checks for mistakes.
+     */
     @Before
     public void setUp() throws Exception {
 
@@ -75,8 +91,8 @@ public class VillainsHeroesTest {
     }
 
     @Test
-    public void checkVillainHP() {
-        Assert.assertEquals(20, (int) baseOne.getRoster().get(0).getHP());
+    public void checkVillainHp() {
+        Assert.assertEquals(20, (int) baseOne.getRoster().get(0).getHp());
     }
 
     @Test
@@ -130,7 +146,7 @@ public class VillainsHeroesTest {
 
     @Test
     public void checkLayerCreation() {
-        EvilLayer baseTwo;
+        final EvilLayer baseTwo;
         evilLayer = new LayerEngineer();
         layerShop = new LayerShop(evilLayer);
         layerShop.makeLayer();
@@ -149,9 +165,9 @@ public class VillainsHeroesTest {
     @Test
     public void checkHeroes() {
 
-        Paula paula;
-        Ness ness;
-        Randy randy;
+        final Paula paula;
+        final Ness ness;
+        final Randy randy;
 
         paula = new Paula();
         Assert.assertNotNull(paula);
@@ -159,7 +175,7 @@ public class VillainsHeroesTest {
         Assert.assertEquals("PAULA", paula.getName());
         Assert.assertNotNull(paula.getImage());
         Assert.assertEquals(100, (int) paula.getPhysDamage());
-        Assert.assertEquals(150, (int) paula.getHP());
+        Assert.assertEquals(150, (int) paula.getHp());
         Assert.assertEquals("PK Fire", paula.getWeapon());
 
         ness = new Ness();
