@@ -1,4 +1,4 @@
- ![Image description](ui/images/earthbound4.png)
+ ![Image description](src/main/resources/ui/images/earthbound4.png)
  
 # Welcome to Earthbound 4!
 Is this an assignment for SER316 at ASU Polytechnic Campus? **Maybe...** Is this another one of Pokey's evil ruses to rule the world once again? **Most definitly.** ✧ (▀̿Ĺ̯▀̿ ̿) 
@@ -16,6 +16,7 @@ The simulation begins in the city of Onette, where villains will "spawn" through
 More information covering villanous activity in Onette: 
 - Villain layers will be constructed by the builder pattern
 - Villains will belong to group layers where heroes will battle
+- Villains will have randomly generated names and descriptions
 
 Heroes and villains engage in battle, victory dependant on HP, strength, and special abilities. All heroes and villains will have powers and through a power multiplier will affect characters in different ways. 
 
