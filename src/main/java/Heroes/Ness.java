@@ -1,5 +1,9 @@
 package main.java.Heroes;
 
+/**
+ * NESS is the main protagoni
+ * @author camanjarrez
+ */
 public class Ness extends Hero {
 
     String asciiArt = ("           _____\n" +
