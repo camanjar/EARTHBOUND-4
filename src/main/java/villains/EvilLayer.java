@@ -1,15 +1,15 @@
-package main.java.Villains;
-
-import main.java.Villains.Characters.EnemySpawnner;
+package main.java.villains;
 
 import java.util.ArrayList;
 
+import main.java.villains.characters.EnemySpawnner;
+
 /**
  * Implements ToolPlan
- *
+ *<p></p>
  * Provides type, color, and strength attribute descriptions to ToolPlan.
  * These String values will be modified further by NookBuilder and ToolShop
- *
+ *<p></p>
  * @author camanjar
  */
 public class EvilLayer implements LayerPlan {

@@ -1,9 +1,19 @@
-package main.java.Villains;
+package main.java.villains;
 
-import main.java.Villains.Characters.*;
+import main.java.villains.characters.EnemySpawnner;
+import main.java.villains.characters.EvilMushroom;
+import main.java.villains.characters.RetroHipster;
+import main.java.villains.characters.SmellyGhost;
+import main.java.villains.characters.Starman;
 
 public class EnemyFactory {
 
+    /**
+     * Uses Factory DP method to create characters below,
+     * including ghosts, hipsters, and aliens.
+     * @param newEnemy Number represents which enemy will spawn
+     * @return new enemy.
+     */
     public EnemySpawnner makeEnemy(String newEnemy) {
 
         EnemySpawnner e = null;

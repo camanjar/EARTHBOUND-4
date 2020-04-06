@@ -1,4 +1,4 @@
-package main.java.Villains;
+package main.java.villains;
 
 /**
  * Tom Nook's Tool Builder
@@ -9,7 +9,9 @@ package main.java.Villains;
 public interface LayerPlan {
 
     public void setLayerColor(String color);
+
     public void setLayerType(String type);
+
     public void setLayerStrength(String strength);
 
 }
